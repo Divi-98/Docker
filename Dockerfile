@@ -1,15 +1,14 @@
 # set a base docker image
-
-FROM ubuntu:latest
+FROM python:3.12-slim
 
 #set the curent working directory in the image
 WORKDIR /app
 
 #copy the files from the host file system to the image file system
-COPY app.py
+COPY app.py .
 
 #Install the necessary packages
-RUN apt-get update && apt-get install -y python3 python3-pip
+RUN pip install pytz
 
 #Set the environment variables
 ENV TZ "Asia/Kolkata"  
